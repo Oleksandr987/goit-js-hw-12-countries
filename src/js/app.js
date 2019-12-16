@@ -7,19 +7,6 @@ import { refs } from './utils/refs';
 
 const debounce = require('lodash.debounce');
 
-function insertListItems(items) {
-  refs.alertList.insertAdjacentHTML('beforeend', items);
-}
-
-function insertCountryDescription(item) {
-  refs.foundContry.insertAdjacentHTML('afterbegin', item);
-}
-
-function removeListItems() {
-  refs.alertList.innerHTML = '';
-  refs.foundContry.innerHTML = '';
-}
-
 function searchFormSubmitHandler(event) {
   event.preventDefault();
   const form = event.target;
@@ -48,6 +35,18 @@ function searchFormSubmitHandler(event) {
       }
     })
     .catch(err => console.warn(err));
+}
+function insertListItems(items) {
+  refs.alertList.insertAdjacentHTML('beforeend', items);
+}
+
+function insertCountryDescription(item) {
+  refs.foundContry.insertAdjacentHTML('afterbegin', item);
+}
+
+function removeListItems() {
+  refs.alertList.innerHTML = '';
+  refs.foundContry.innerHTML = '';
 }
 
 refs.input.addEventListener('input', debounce(searchFormSubmitHandler, 500));
