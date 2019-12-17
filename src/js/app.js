@@ -34,10 +34,10 @@ function searchFormSubmitHandler(event) {
         pNotice(messages.warningTooManyMatches);
       }
     })
-    .catch(err => console.warn(err));
+    .catch(err => console.log(err));
 }
 function insertListItems(items) {
-  refs.alertList.insertAdjacentHTML('beforeend', items);
+  refs.searchResults.insertAdjacentHTML('beforeend', items);
 }
 
 function insertCountryDescription(item) {
@@ -45,7 +45,7 @@ function insertCountryDescription(item) {
 }
 
 function removeListItems() {
-  refs.alertList.innerHTML = '';
+  refs.searchResults.innerHTML = '';
   refs.foundContry.innerHTML = '';
 }
 
